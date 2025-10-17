@@ -4,6 +4,7 @@ import NameInput from "../components/NameInput";
 import PronounsPicker from "../components/PronounsPicker";
 import InterestPicker from "../components/InterestPicker";
 import CustomAvatar from "../components/CustomAvatar";
+import mascot from "../assets/mascot.png"
 
 const WelcomePage = () => {
     const [step, setStep] = useState<number>(1);
@@ -18,6 +19,7 @@ const WelcomePage = () => {
 
     return (
         <div>
+            <img src={mascot} alt="" />
             <h3>Welcome!</h3>
             {steps[step]}
         </div>
