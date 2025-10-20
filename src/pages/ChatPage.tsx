@@ -1,9 +1,12 @@
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 const apiUrl = import.meta.env.VITE_API_URL;
 const modelName = import.meta.env.VITE_MODEL_NAME;
 
 const ChatPage = () => {
-    const [messages, setMessages] = useState<string[]>([]);
+    type Message = { sender: "user" | "bot" | "error"; text: string };
+    const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState<boolean | null>(null);
 
@@ -12,10 +15,10 @@ const ChatPage = () => {
         const userMsg = input.trim();
         if (!userMsg) return;
 
-        setMessages((prev) => [...prev, `👤: ${userMsg}`]);
+        setMessages((prev) => [...prev, { sender: "user", text: userMsg }]);
         setInput("");
         setLoading(true)
-        
+
         try {
             const res = await fetch(apiUrl, {
                 method: "POST",
@@ -39,10 +42,10 @@ const ChatPage = () => {
                 })
                 .join("");
 
-            setMessages((prev) => [...prev, `🤖: ${fullResponse}`]);
+            setMessages((prev) => [...prev, { sender: "bot", text: fullResponse }]);
         } catch (err) {
             console.error("Error al conectar con el modelo:", err);
-            setMessages((prev) => [...prev, "❌ Error al conectar con el modelo"]);
+            setMessages((prev) => [...prev, { sender: "bot", text: "error" }]);
         }
         finally {
             setLoading(false)
@@ -56,12 +59,25 @@ const ChatPage = () => {
                 💬 Chat local — Bienvenido
             </header>
 
-            <div className="flex-1 overflow-y-auto p-4 space-y-2">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 flex flex-col">
                 {messages.map((msg, i) => (
-                    <div key={i} className="bg-white shadow rounded-xl p-2">
-                        {msg}
+                    <div
+                        key={i}
+                        className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
+                    >
+                        <div
+                            className={`list-inside list-decimal max-w-[80%] p-3 rounded-xl shadow ${msg.sender === "user"
+                                    ? "bg-blue-100 text-gray-800"
+                                    : msg.sender === "bot"
+                                        ? "bg-green-100 text-gray-800"
+                                        : "bg-red-100 text-gray-800"
+                                }`}
+                        >
+                            <ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.text}</ReactMarkdown>
+                        </div>
                     </div>
                 ))}
+
                 {loading && (
                     <div className="text-gray-500 italic animate-pulse">🤖 loading...</div>
                 )}
