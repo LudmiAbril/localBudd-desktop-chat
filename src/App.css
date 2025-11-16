@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
-:root {
-  --primary: #7CE3C2;
+@font-face {
+  font-family: "pixelify";
+  src: url("./assets/fonts/PixelifySans-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
+
+.pixelify {
+  font-family: "pixelify";
+}
+
+body {
+  font-family: "pixelify";
+  color: white;
+}
+
+:root {
+  --primary: #49bd6f;
+}
+

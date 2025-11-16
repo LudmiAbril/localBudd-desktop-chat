@@ -7,10 +7,10 @@ import IntroductionPage from './pages/IntroductionPage'
 function App() {
   const { configured } = useUserStore();
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <Routes>
         <Route path="/" element={
-          configured ? <Navigate to="/home" replace /> : <WelcomePage />
+          configured ? <Navigate to="/home/chat" replace /> : <WelcomePage />
         } />
         {/* indica que enruta todo luego de home */}
         <Route path="/intro" element={<IntroductionPage />} />

@@ -47,16 +47,18 @@ const WelcomePage = () => {
 
     const nextButtonText = step === Object.entries(steps).length ? finishText : nextText;
 
+    const isBackButtonDisabled = step === 1;
+
     return (
-        <div>
-            <h3>{welcomeText}</h3>
-            {steps[step]}
-            {step !== 6 &&
+        <div className="bg-[var(--primary)] w-screen h-screen flex items-center justify-center">
+            <div className="w-fit flex flex-col items-center">
+                <h3 className="pixelify mb-2 text-4xl text-white">{welcomeText}</h3>
+                {steps[step]}
                 <div className="flex gap-10">
-                    <Button onClick={goBack}>{backText}</Button>
+                    <Button disabled={isBackButtonDisabled} onClick={goBack}>{backText}</Button>
                     <Button disabled={isNextDisabled} onClick={nextStep}>{nextButtonText}</Button>
                 </div>
-            }
+            </div>
         </div>
     )
 }

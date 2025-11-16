@@ -7,7 +7,16 @@ interface ButtonProps {
 
 const Button = ({ children, onClick, className, disabled = false }: ButtonProps) => {
     return (
-        <button disabled={disabled} onClick={onClick} className={`${className} ${disabled ? 'cursor-not-allowed bg-gray-300' : 'cursor-pointer bg-blue-200 hover:bg-blue-300'} px-6 py-2 rounded-lg transition`}>{children}</button>
+        <button disabled={disabled} onClick={onClick} className={`${className} ${disabled ? "cursor-not-allowed bg-[url('src/assets/disabled-btn.svg')] " : " bg-[url('src/assets/btn.svg')] cursor-pointer"}
+      bg-no-repeat bg-contain bg-center
+      w-30 h-14
+      flex items-center justify-center
+      text-xl drop-shadow-md 
+      active:scale-95
+      active:translate-y-[2px]
+      active:drop-shadow-none
+      drop-shadow-md
+      hover:scale-105 `}>{children}</button>
     )
 }
 
