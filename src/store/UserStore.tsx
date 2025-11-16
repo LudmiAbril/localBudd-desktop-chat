@@ -10,7 +10,7 @@ interface UserStoreProps {
 }
 
 export const useUserStore = create<UserStoreProps>()((set) => ({
-    name: "user",
+    name: "",
     pronouns: "he/him",
     language: 'en',
     chatAvatar: 'bunny',
