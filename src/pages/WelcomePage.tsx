@@ -7,12 +7,14 @@ import AvatarPicker from "../components/AvatarPicker";
 import { useUserStore } from "../store/UserStore";
 import Button from "../components/ui/Button";
 import { useStepValidation } from "../hooks/UserConfigStepValidator";
-import Introduction from "../components/Introduction";
+import { useNavigate } from "react-router-dom";
 
 const WelcomePage = () => {
     const [step, setStep] = useState<number>(1);
     const { language } = useUserStore();
     const { isNextDisabled } = useStepValidation(step);
+    const navigate = useNavigate();
+
 
     const steps: { [key: string]: JSX.Element } = {
         "1": <LanguagePicker />,
@@ -20,11 +22,13 @@ const WelcomePage = () => {
         "3": <PronounsPicker />,
         "4": <InterestPicker />,
         "5": <AvatarPicker />,
-        "6": <Introduction />,
     };
 
     const nextStep = () => {
-        if (step === Object.entries(steps).length) return;
+        if (step === Object.entries(steps).length) {
+            navigate("/intro");
+            return;
+        };
         setStep((prev) => prev + 1);
     }
 

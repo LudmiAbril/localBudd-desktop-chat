@@ -1,12 +1,21 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useUserStore } from "../../store/UserStore";
 
 const NavBar = () => {
+  const { updateUser } = useUserStore();
+  const navigate = useNavigate();
+  const logout = () => {
+    updateUser({ configured: false });
+    navigate("/");
+  }
   const ButtonStyles = "cursor-pointer px-4 py-2 text-white font-semibold hover:bg-[#6EC4A9]";
+
   return (
     <div className="bg-[var(--primary)] h-screen w-[12rem]">
       <div className="flex flex-col space-y-2">
         <Link className={ButtonStyles} to="/home/chat">Chat</Link>
         <Link className={ButtonStyles} to="/home/avatar">Avatar</Link>
+        <p onClick={logout} className={ButtonStyles}>logout</p>
       </div>
     </div>
   )
