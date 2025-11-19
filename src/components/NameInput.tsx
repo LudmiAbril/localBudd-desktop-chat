@@ -1,14 +1,22 @@
-import { useUserStore } from "../store/UserStore"
+import { useTranslation } from "react-i18next";
+import { useUserStore } from "../store/UserStore";
 
 const NameInput = () => {
-  const { name, updateUser, language } = useUserStore();
-  const sectionText = language === 'en' ? "How would you like to be called?" : "Como quieres que te llamen?";
+  const { name, updateUser } = useUserStore();
+  const { t } = useTranslation();
+
   return (
     <div>
-      <h3>{sectionText}</h3>
-      <input type="text" name="name" id="name" value={name} onChange={(e) => updateUser({ name: e.target.value as string })} />
+      <h3>{t("EnterNameTitle")}</h3>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        value={name}
+        onChange={(e) => updateUser({ name: e.target.value as string })}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default NameInput
+export default NameInput;

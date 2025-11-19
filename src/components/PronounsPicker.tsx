@@ -1,31 +1,31 @@
+import { useTranslation } from "react-i18next";
 import { useUserStore } from "../store/UserStore";
 
 const PronounsPicker = () => {
-  const { pronouns: userPronouns, language, updateUser } = useUserStore();
+  const { pronouns: userPronouns, updateUser } = useUserStore();
+  const { t } = useTranslation();
 
-  const pronouns = {
-    'she/her': {
-      en: "She/Her",
-      es: "Ella"
-    },
-    'he/him': {
-      en: "He/Him",
-      es: "Él"
-    }
-  }
-
-  const sectionText = language === 'en' ? "Which pronouns do you use?" : "Que pronombres usas?";
+  const pronouns = t("SelectPronouns.pronouns", {
+    returnObjects: true,
+  }) as Record<string, string>;
 
   return (
     <div>
-      <h3>{sectionText}</h3>
-      <select name="pronouns" id="pronouns" value={userPronouns} onChange={(e) => updateUser({ pronouns: e.target.value as Pronouns })}>
-        {Object.entries(pronouns).map(([key, values]) => (
-          <option key={key} value={key}>{values[language]}</option>
+      <h3>{t("SelectPronouns.title")}</h3>
+      <select
+        name="pronouns"
+        id="pronouns"
+        value={userPronouns}
+        onChange={(e) => updateUser({ pronouns: e.target.value as Pronouns })}
+      >
+        {Object.entries(pronouns).map(([key, value]) => (
+          <option key={key} value={key}>
+            {value}
+          </option>
         ))}
       </select>
     </div>
-  )
-}
+  );
+};
 
-export default PronounsPicker
+export default PronounsPicker;

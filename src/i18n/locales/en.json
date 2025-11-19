@@ -1,0 +1,40 @@
+{
+    "buttons": {
+        "next": "Next",
+        "back": "Back",
+        "finish": "Finish"
+    },
+    "WelcomePageTitle": "Welcome!",
+    "SelectLanguage": {
+        "title": "Please select a language",
+        "languages": {
+            "en": "English",
+            "es": "Spanish"
+        }
+    },
+    "EnterNameTitle": "How would you like to be called?",
+    "SelectPronouns": {
+        "title": "Which pronouns do you use?",
+        "pronouns": {
+            "she/her": "She/Her",
+            "He/Him": "He/Him"
+        }
+    },
+    "PickInterests": {
+        "title": "pick your interests",
+        "interests": {
+            "coding": "Coding",
+            "task_managment": "Task Managment",
+            "learning": "Learning",
+            "daily_planning": "Daily Planning"
+        }
+    },
+    "PickAvatar": {
+        "title": "Pick an avatar",
+        "avatars": {
+            "bunny": "Bunny",
+            "cat": "Cat",
+            "dog": "Dog"
+        }
+    }
+}
