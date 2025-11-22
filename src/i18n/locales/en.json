@@ -12,7 +12,10 @@
             "es": "Spanish"
         }
     },
-    "EnterNameTitle": "How would you like to be called?",
+    "EnterName": {
+        "title": "How would you like to be called?",
+        "placeholder": "Name..."
+    },
     "SelectPronouns": {
         "title": "Which pronouns do you use?",
         "pronouns": {

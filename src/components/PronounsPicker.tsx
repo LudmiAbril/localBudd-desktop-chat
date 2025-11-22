@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useUserStore } from "../store/UserStore";
+import Select from "./ui/Select";
 
 const PronounsPicker = () => {
   const { pronouns: userPronouns, updateUser } = useUserStore();
@@ -10,20 +11,16 @@ const PronounsPicker = () => {
   }) as Record<string, string>;
 
   return (
-    <div>
-      <h3>{t("SelectPronouns.title")}</h3>
-      <select
-        name="pronouns"
-        id="pronouns"
+    <div className="flex flex-col items-center">
+      <h3 className="text-xl mb-2">{t("SelectPronouns.title")}</h3>
+      <Select
         value={userPronouns}
-        onChange={(e) => updateUser({ pronouns: e.target.value as Pronouns })}
-      >
-        {Object.entries(pronouns).map(([key, value]) => (
-          <option key={key} value={key}>
-            {value}
-          </option>
-        ))}
-      </select>
+        onChange={(value) => updateUser({ pronouns: value as Pronouns })}
+        options={Object.entries(pronouns).map(([value, label]) => ({
+          value,
+          label,
+        }))}
+      />
     </div>
   );
 };

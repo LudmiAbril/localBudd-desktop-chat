@@ -12,7 +12,10 @@
             "es": "Español"
         }
     },
-    "EnterNameTitle": "Como te gustaria que te llamen",
+    "EnterName": {
+        "title": "Como quieres que te llamen?",
+        "placeholder": "Nombre..."
+    },
     "SelectPronouns": {
         "title": "Que pronombres usas?",
         "pronouns": {

@@ -7,6 +7,12 @@
   font-style: normal;
 }
 
+.input-base {
+  @apply appearance-none bg-white rounded-lg border-2 border-gray-600
+         text-gray-600 p-1 pr-8 w-full focus:outline-none focus:ring-0;
+}
+
+
 .pixelify {
   font-family: "pixelify";
 }
