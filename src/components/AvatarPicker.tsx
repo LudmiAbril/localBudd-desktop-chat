@@ -12,9 +12,9 @@ const AvatarPicker = () => {
   return (
     <div className="flex flex-col items-center">
       <h3 className="text-xl mb-2">{t("PickAvatar.title")}</h3>
-      <div className="flex gap-5">
+      <div className="mt-3 flex gap-10">
         {Object.entries(avatars).map(([key, value]) => (
-          <label className="cursor-pointer">
+          <label className="cursor-pointer text-center">
             <input
               type="radio"
               name="avatar"
@@ -36,9 +36,10 @@ const AvatarPicker = () => {
               <img
                 src={`src/assets/${key}-avatar.png`}
                 alt={value}
-                className="w-full h-full object-cover bg-gray-200/50"
+                className="w-full h-full object-cover bg-gray-200/30"
               />
             </div>
+            <p className="mt-1 text-lg">{value}</p>
           </label>
         ))}
       </div>

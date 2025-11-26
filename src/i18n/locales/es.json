@@ -2,7 +2,8 @@
     "buttons": {
         "next": "Continuar",
         "back": "Volver",
-        "finish": "Finalizar"
+        "finish": "Finalizar",
+        "start": "Comenzar"
     },
     "WelcomePageTitle": "Bienvenido!",
     "SelectLanguage": {
@@ -39,5 +40,13 @@
             "cat": "Gato",
             "dog": "Perro"
         }
+    },
+    "Introduction": {
+        "title": "Comenzemos, {{username}}!",
+        "texts": [
+            "Este es tu compañero, {{avatar}}. Va a asistirte con cualquier tópico que quieras.",
+            "Para comenzar, simplemente tienes que ir a la sección de chat en la barra de navegación y escribirle un mensaje.",
+            "Ademas, puedes interactuar con tu compañero: puedes acariciarlo y darle de comer. Intentalo!"
+        ]
     }
 }

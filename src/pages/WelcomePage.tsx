@@ -44,7 +44,7 @@ const WelcomePage = () => {
   const isBackButtonDisabled = step === 1;
 
   return (
-    <div className="bg-[var(--primary)] w-screen h-screen flex items-center justify-center">
+    <div className="bg-[var(--bg-color)] w-screen h-screen flex items-center justify-center">
       <div className="w-fit flex flex-col items-center">
         <h3 className="pixelify mb-3 text-4xl text-white">
           {t("WelcomePageTitle")}
