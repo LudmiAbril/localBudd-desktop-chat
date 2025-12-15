@@ -23,7 +23,9 @@ body {
 }
 
 :root {
-  --primary: #49bd6f;
-  --bg-color: #49bd6f;
+  --primary: #49bd8d;
+  --secondary: #e2d570;
+  --bg-color: #49bd83;
+  --bg-color-secondary: #96c7b2;
 }
 

@@ -46,7 +46,7 @@
         "texts": [
             "This is your buddy: {{avatar}}. It will assist you with any topic you want.",
             "You just have to go to the chat section in the navbar and start a conversation.",
-            "You can also interact with your buddy: pet it and feed it. Try it out!"
+            "You can also switch your budd."
         ]
     }
 }

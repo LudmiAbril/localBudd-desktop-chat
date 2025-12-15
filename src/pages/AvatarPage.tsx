@@ -1,11 +1,20 @@
-import avatarImg from "../assets/avatar.png";
-const AvatarPage = () => {
-  return (
-    <div className="w-screnn h-screen bg-gray-200">
-      <img src={avatarImg} alt="avatar" width={100} className="m-auto" />
-      <h4 className="text-center">Avatar</h4>
-    </div>
-  )
-}
+import AvatarPicker from "../components/AvatarPicker";
+import { useUserStore } from "../store/UserStore";
 
-export default AvatarPage
+const AvatarPage = () => {
+  const { chatAvatar } = useUserStore();
+  return (
+    <div className="w-screnn h-screen bg-gray-500 flex flex-col justify-center items-center">
+      <h4 className="text-center text-3xl pt-10">Mi Avatar</h4>
+      <img
+        src={`/src/assets/avatar-full-${chatAvatar}.png`}
+        alt="interfaz"
+        width={180}
+        className="my-7"
+      />
+      <AvatarPicker />
+    </div>
+  );
+};
+
+export default AvatarPage;

@@ -29,12 +29,12 @@ const AvatarPicker = () => {
               className="
       w-20 h-20 rounded-xl overflow-hidden
       border-2 border-transparent
-      peer-checked:border-yellow-300
+      peer-checked:border-[var(--secondary)]
       peer-checked:shadow-md
       transition-all"
             >
               <img
-                src={`src/assets/${key}-avatar.png`}
+                src={new URL(`../assets/${key}-avatar.png`, import.meta.url).href}
                 alt={value}
                 className="w-full h-full object-cover bg-gray-200/30"
               />

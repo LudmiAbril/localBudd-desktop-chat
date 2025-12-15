@@ -56,7 +56,7 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50">
+    <div className="flex flex-col h-screen bg-[var(--bg-color-secondary)]">
       <div className="flex-1 overflow-y-auto p-4 space-y-3 flex flex-col">
         {messages.map((msg, i) => (
           <div
@@ -73,9 +73,9 @@ const ChatPage = () => {
             )}
 
             <div
-              className={`list-inside list-decimal max-w-[80%] p-3 rounded-xl shadow ${
+              className={`list-inside list-decimal max-w-[80%] p-3 rounded-xl  ${
                 msg.sender === "user"
-                  ? "bg-blue-100 text-gray-800"
+                  ? "bg-white text-gray-800"
                   : msg.sender === "bot"
                   ? "bg-green-100 text-gray-800"
                   : "bg-red-100 text-gray-800"
@@ -107,7 +107,7 @@ const ChatPage = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Escribí un mensaje..."
-          className="flex-1 input-base h-12"
+          className="flex-1 input-base border-none h-12"
         />
         <Button type="submit">Enviar</Button>
       </form>
