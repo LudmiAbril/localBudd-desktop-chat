@@ -8,7 +8,6 @@ interface ButtonProps {
   type?: "button" | "submit" | "reset";
 }
 
-
 const Button = ({
   children,
   onClick,
@@ -35,7 +34,7 @@ const Button = ({
       active:drop-shadow-none
       drop-shadow-md
       hover:scale-105 `}
-        style={{
+      style={{
         backgroundImage: `url(${disabled ? disabledBtn : btn})`,
       }}
     >
